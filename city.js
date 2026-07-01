@@ -15,6 +15,7 @@ window.MERIDIAN_CITIES = {
     phoneHref: '+12125550110',
     heroImg: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=2000&q=80',
     heroAlt: 'A luxury sports car in a dark, cinematic setting',
+    heroPos: '50% 50%',
   },
   miami: {
     id: 'miami',
@@ -27,6 +28,7 @@ window.MERIDIAN_CITIES = {
     phoneHref: '+13055551234',
     heroImg: 'https://images.unsplash.com/photo-1631295868223-63265b40d9e4?auto=format&fit=crop&w=2000&q=80',
     heroAlt: 'A white Rolls-Royce beneath palm trees in Miami',
+    heroPos: '50% 68%',
   },
 };
 
@@ -82,10 +84,11 @@ function applyCity() {
     a.setAttribute('href', 'tel:' + C.phoneHref);
   });
 
-  // hero image swap
+  // hero image swap (+ per-city focal point so the vehicle stays centered, uncropped)
   document.querySelectorAll('[data-city-hero]').forEach(img => {
     if (img.getAttribute('src') !== C.heroImg) img.setAttribute('src', C.heroImg);
     img.setAttribute('alt', C.heroAlt);
+    if (C.heroPos) img.style.objectPosition = C.heroPos;
     img.style.display = '';
   });
 
