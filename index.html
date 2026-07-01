@@ -317,10 +317,9 @@
     </div>
   </footer>
 
-  <!-- Mobile sticky bottom CTA bar -->
-  <div class="lg:hidden fixed bottom-0 inset-x-0 z-40 border-t hairline bg-base/95 backdrop-blur-lg px-4 py-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] flex gap-3">
-    <a href="fleet.html" class="flex-1 text-center rounded-full border hairline py-3 text-[13px] font-semibold text-ink cursor-pointer">Fleet</a>
-    <a href="#contact" class="flex-1 text-center rounded-full bg-gold py-3 text-[13px] font-semibold text-base cursor-pointer">Reserve / Get a Quote</a>
+  <!-- Mobile sticky bottom CTA — single primary action, revealed once the hero scrolls away -->
+  <div id="mobileCta" class="lg:hidden fixed bottom-0 inset-x-0 z-40 border-t hairline bg-base/95 backdrop-blur-lg px-4 py-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] translate-y-full opacity-0 pointer-events-none transition-[transform,opacity] duration-300 ease-out">
+    <a href="#contact" class="block text-center rounded-full bg-gold py-3.5 text-sm font-semibold text-base cursor-pointer">Reserve / Get a Quote</a>
   </div>
   <div class="lg:hidden h-20" aria-hidden="true"></div>
 
@@ -384,6 +383,18 @@
       document.querySelectorAll('#featuredGrid .reveal, #reviewGrid .reveal').forEach(el => el.classList.add('in'));
     }
     document.addEventListener('citychange', renderCity);
+
+    /* ---------- Reveal the sticky mobile CTA only after the hero scrolls away ---------- */
+    const mobileCta = document.getElementById('mobileCta');
+    function toggleMobileCta() {
+      if (!mobileCta) return;
+      const show = window.scrollY > window.innerHeight * 0.75;
+      mobileCta.classList.toggle('translate-y-full', !show);
+      mobileCta.classList.toggle('opacity-0', !show);
+      mobileCta.classList.toggle('pointer-events-none', !show);
+    }
+    toggleMobileCta();
+    window.addEventListener('scroll', toggleMobileCta, { passive: true });
 
     /* ---------- Init shared UI + city ---------- */
     initMeridianUI();
