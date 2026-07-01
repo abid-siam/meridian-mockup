@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vehicle — MERIDIAN</title>
+  <meta name="description" content="Vehicle detail — MERIDIAN luxury car rental." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: {
+        colors: { base:'#0A0A0B', surface:'#16161A', hair:'rgba(255,255,255,0.08)', ink:'#F5F3EF', muted:'#A1A1AA', gold:'#C6A56B', 'gold-bright':'#D8BC85', sage:'#6FA287' },
+        fontFamily: { display:['"Cormorant Garamond"','Georgia','serif'], sans:['Inter','system-ui','sans-serif'] },
+        maxWidth: { shell: '1440px' },
+      } },
+    };
+  </script>
+  <link rel="stylesheet" href="theme.css" />
+</head>
+
+<body class="bg-base text-ink font-sans antialiased">
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:bg-gold focus:text-base focus:px-4 focus:py-2 focus:rounded">Skip to content</a>
+
+  <!-- HEADER -->
+  <header id="siteHeader" class="fixed top-0 inset-x-0 z-50 condensed">
+    <div class="mx-auto max-w-shell px-5 sm:px-8 lg:px-12">
+      <div class="flex items-center justify-between h-[68px] lg:h-[76px]">
+        <a href="index.html" class="font-display text-2xl lg:text-[26px] font-semibold tracking-wide text-ink">MERIDIAN<span class="text-gold">.</span></a>
+        <nav aria-label="Primary" class="hidden lg:flex items-center gap-9">
+          <a href="fleet.html" class="text-[13px] label text-ink/90 hover:text-gold transition-colors">Fleet</a>
+          <a href="index.html#services" class="text-[13px] label text-ink/90 hover:text-gold transition-colors">Services</a>
+          <a href="index.html#story" class="text-[13px] label text-ink/90 hover:text-gold transition-colors">About</a>
+          <a href="index.html#contact" class="text-[13px] label text-ink/90 hover:text-gold transition-colors">Contact</a>
+        </nav>
+        <div class="flex items-center gap-3">
+          <div data-city-toggle class="hidden md:inline-flex"></div>
+          <button data-quote class="hidden lg:inline-flex cta-lift items-center gap-2 rounded-full bg-gold px-6 py-2.5 text-[13px] font-semibold text-base hover:bg-gold-bright cursor-pointer">Reserve</button>
+          <button id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu" class="lg:hidden inline-grid place-items-center h-11 w-11 rounded-full border hairline text-ink hover:text-gold cursor-pointer">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <div id="mobileMenu" class="fixed inset-0 z-[60] hidden bg-base/98 backdrop-blur-xl">
+    <div class="flex items-center justify-between h-[68px] px-5">
+      <span class="font-display text-2xl font-semibold">MERIDIAN<span class="text-gold">.</span></span>
+      <button id="menuClose" aria-label="Close menu" class="inline-grid place-items-center h-11 w-11 rounded-full border hairline text-ink hover:text-gold cursor-pointer">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <div class="px-6 pt-6">
+      <p class="label text-[11px] text-muted mb-3">Your city</p>
+      <div data-city-toggle class="mb-2"></div>
+    </div>
+    <nav aria-label="Mobile" class="px-6 pt-4 flex flex-col gap-2">
+      <a href="fleet.html" class="font-display text-4xl py-3 border-b hairline hover:text-gold">Fleet</a>
+      <a href="index.html#services" class="font-display text-4xl py-3 border-b hairline hover:text-gold">Services</a>
+      <a href="index.html#story" class="font-display text-4xl py-3 border-b hairline hover:text-gold">About</a>
+      <a href="index.html#contact" class="font-display text-4xl py-3 border-b hairline hover:text-gold">Contact</a>
+      <a href="index.html#contact" class="mt-6 text-center rounded-full bg-gold px-6 py-4 text-sm font-semibold text-base">Reserve / Get a Quote</a>
+    </nav>
+  </div>
+
+  <main id="main" class="above-map pt-[68px] lg:pt-[76px]">
+    <!-- Breadcrumb -->
+    <div class="mx-auto max-w-shell px-5 sm:px-8 lg:px-12 pt-6">
+      <nav aria-label="Breadcrumb" class="flex items-center gap-2 text-[12px] text-muted">
+        <a href="index.html" class="hover:text-gold">Home</a><span>/</span>
+        <a href="fleet.html" class="hover:text-gold">Fleet</a><span>/</span>
+        <span id="crumbName" class="text-ink/80">Vehicle</span>
+      </nav>
+    </div>
+
+    <!-- DETAIL -->
+    <section class="mx-auto max-w-shell px-5 sm:px-8 lg:px-12 pt-6 pb-16 lg:pb-24">
+      <div class="grid lg:grid-cols-2 gap-8 lg:gap-14">
+        <!-- Gallery -->
+        <div>
+          <div class="photo relative aspect-[3/2] rounded-2xl overflow-hidden border hairline" id="mainPhoto" data-name="">
+            <img id="mainImg" alt="" class="absolute inset-0 h-full w-full object-cover" onerror="this.style.display='none'" />
+            <span id="galAvail" class="absolute top-4 right-4 z-10 inline-flex items-center gap-1.5 text-[12px] bg-base/70 backdrop-blur px-3 py-1.5 rounded-full text-sage"><span class="h-1.5 w-1.5 rounded-full bg-sage"></span>Available</span>
+          </div>
+          <div id="thumbs" class="mt-4 grid grid-cols-4 gap-3"></div>
+        </div>
+
+        <!-- Info -->
+        <div class="lg:pt-2">
+          <div class="flex items-center gap-3 mb-4">
+            <span id="catTag" class="label text-[11px] text-gold"></span>
+            <span class="h-1 w-1 rounded-full bg-muted/50"></span>
+            <span class="label text-[11px] text-muted">2024 · <span data-city-text="short">New York</span></span>
+          </div>
+          <h1 id="vName" class="font-display text-4xl sm:text-5xl lg:text-[3.5rem] leading-[1] font-medium"></h1>
+
+          <!-- Price block -->
+          <div class="mt-7 flex flex-wrap items-end gap-x-6 gap-y-2">
+            <p class="text-gold"><span class="text-sm text-muted">from</span> <span id="vPrice" class="font-display text-5xl leading-none tabular-nums"></span><span class="text-sm text-muted">/day</span></p>
+            <p class="text-[13px] text-muted pb-1">Refundable deposit from $2,500 · fully insured</p>
+          </div>
+
+          <!-- Spec grid -->
+          <div id="specGrid" class="mt-8 grid grid-cols-2 sm:grid-cols-3 gap-px bg-white/[0.06] border hairline rounded-2xl overflow-hidden"></div>
+
+          <!-- Booking CTAs -->
+          <div class="mt-8 flex flex-col sm:flex-row gap-4">
+            <a id="primaryCta" href="#" class="cta-lift flex-1 inline-flex items-center justify-center gap-2 rounded-full bg-gold px-8 py-4 text-sm font-semibold text-base hover:bg-gold-bright cursor-pointer"></a>
+            <button data-quote class="cta-lift flex-1 inline-flex items-center justify-center gap-2 rounded-full border hairline px-8 py-4 text-sm font-semibold text-ink hover:border-gold hover:text-gold cursor-pointer">
+              Request via Concierge
+            </button>
+          </div>
+          <p id="ctaNote" class="mt-3 text-[12px] text-muted"></p>
+
+          <!-- Description -->
+          <div class="mt-10 pt-8 border-t hairline">
+            <h2 class="label text-[12px] text-gold mb-3">Overview</h2>
+            <p id="vDesc" class="text-ink/80 leading-relaxed text-[15px]"></p>
+          </div>
+
+          <!-- Trust row -->
+          <div class="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-[13px] text-muted">
+            <span class="inline-flex items-center gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/></svg>Fully insured</span>
+            <span class="inline-flex items-center gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M3 13l2-6h11l3 4h2v5"/><circle cx="7.5" cy="17.5" r="1.5"/><circle cx="17.5" cy="17.5" r="1.5"/></svg>Door-to-door delivery</span>
+            <span class="inline-flex items-center gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="9"/></svg>24/7 concierge</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- YOU MAY ALSO LIKE -->
+    <section class="border-t hairline bg-surface/30">
+      <div class="mx-auto max-w-shell px-5 sm:px-8 lg:px-12 py-16 lg:py-24">
+        <div class="flex items-end justify-between mb-10">
+          <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-medium">You may also like</h2>
+          <a href="fleet.html" class="hidden sm:inline-flex items-center gap-2 text-sm text-ink/80 hover:text-gold transition-colors">All vehicles
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+        <div id="relatedGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="above-map border-t hairline bg-surface/40">
+    <div class="mx-auto max-w-shell px-5 sm:px-8 lg:px-12 py-16">
+      <div class="grid gap-12 lg:grid-cols-12">
+        <div class="lg:col-span-5">
+          <a href="index.html" class="font-display text-3xl font-semibold">MERIDIAN<span class="text-gold">.</span></a>
+          <p class="mt-4 max-w-sm text-muted leading-relaxed">The city, elevated. Premium and exotic car rental with concierge delivery across <span data-city-text="short">New York</span> and beyond.</p>
+        </div>
+        <nav aria-label="Footer" class="lg:col-span-3">
+          <p class="label text-[11px] text-muted mb-4">Explore</p>
+          <ul class="space-y-3 text-sm">
+            <li><a href="fleet.html" class="text-ink/80 hover:text-gold transition-colors">Fleet</a></li>
+            <li><a href="index.html#services" class="text-ink/80 hover:text-gold transition-colors">Services</a></li>
+            <li><a href="index.html#story" class="text-ink/80 hover:text-gold transition-colors">About</a></li>
+            <li><a href="index.html#contact" class="text-ink/80 hover:text-gold transition-colors">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="lg:col-span-4">
+          <p class="label text-[11px] text-muted mb-4">Concierge</p>
+          <ul class="space-y-3 text-sm">
+            <li><a href="tel:+12125550110" class="city-phone text-ink/80 hover:text-gold transition-colors">+1 (212) 555-0110</a></li>
+            <li><a href="mailto:concierge@meridian.example" class="text-ink/80 hover:text-gold transition-colors">concierge@meridian.example</a></li>
+            <li class="text-muted">Serving <span data-city-text="region">Greater New York · Manhattan to the Hamptons</span> · Delivery available</li>
+          </ul>
+          <div class="mt-6 flex flex-wrap gap-x-2 gap-y-1 text-[12px] text-muted">
+            <span>Fully insured</span><span class="text-gold">·</span><span>24/7 concierge</span><span class="text-gold">·</span><span>Delivery available</span>
+          </div>
+        </div>
+      </div>
+      <div class="mt-14 pt-6 border-t hairline flex flex-col sm:flex-row justify-between gap-3 text-[12px] text-muted">
+        <p>© 2026 MERIDIAN Motorcars. Concierge hours: 7am–11pm daily.</p>
+        <p>A visual prototype — no bookings are processed.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MOBILE STICKY CTA -->
+  <div class="lg:hidden fixed bottom-0 inset-x-0 z-40 border-t hairline bg-base/95 backdrop-blur-lg px-4 py-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] flex items-center gap-3">
+    <div class="shrink-0">
+      <p class="text-[10px] text-muted leading-none">from</p>
+      <p class="text-gold font-semibold tabular-nums leading-tight"><span id="mPrice"></span><span class="text-[11px] text-muted font-normal">/day</span></p>
+    </div>
+    <button data-quote class="flex-1 text-center rounded-full bg-gold py-3 text-[13px] font-semibold text-base cursor-pointer">Request via Concierge</button>
+  </div>
+  <div class="lg:hidden h-20" aria-hidden="true"></div>
+
+  <!-- CONCIERGE INQUIRY MODAL (visual only) -->
+  <div id="quoteModal" class="fixed inset-0 z-[70] hidden">
+    <div class="absolute inset-0 bg-base/80 backdrop-blur-sm" data-close></div>
+    <div class="absolute inset-x-0 bottom-0 sm:inset-0 sm:m-auto sm:h-fit sm:max-w-lg">
+      <div class="bg-surface border hairline sm:rounded-3xl rounded-t-3xl max-h-[92vh] overflow-y-auto">
+        <div class="sticky top-0 bg-surface/95 backdrop-blur px-6 py-5 flex items-center justify-between border-b hairline">
+          <div>
+            <p class="label text-[11px] text-gold">Request via Concierge</p>
+            <h2 class="font-display text-2xl mt-0.5" id="modalCar">Request a Quote</h2>
+          </div>
+          <button data-close aria-label="Close" class="inline-grid place-items-center h-10 w-10 rounded-full border hairline text-ink hover:text-gold cursor-pointer">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+          </button>
+        </div>
+
+        <form id="quoteForm" class="px-6 py-6 space-y-4" novalidate>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label for="f-name" class="block text-[12px] label text-muted mb-1.5">Name <span class="text-gold">*</span></label>
+              <input id="f-name" name="name" type="text" required autocomplete="name" class="w-full min-h-[44px] bg-base border hairline rounded-xl px-4 text-sm text-ink placeholder:text-muted/60" placeholder="Full name" />
+            </div>
+            <div>
+              <label for="f-phone" class="block text-[12px] label text-muted mb-1.5">Phone</label>
+              <input id="f-phone" name="phone" type="tel" autocomplete="tel" class="w-full min-h-[44px] bg-base border hairline rounded-xl px-4 text-sm text-ink placeholder:text-muted/60" placeholder="+1 (___) ___-____" />
+            </div>
+          </div>
+          <div>
+            <label for="f-email" class="block text-[12px] label text-muted mb-1.5">Email <span class="text-gold">*</span></label>
+            <input id="f-email" name="email" type="email" required autocomplete="email" class="w-full min-h-[44px] bg-base border hairline rounded-xl px-4 text-sm text-ink placeholder:text-muted/60" placeholder="you@email.com" />
+          </div>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label for="f-service" class="block text-[12px] label text-muted mb-1.5">Service type</label>
+              <div class="relative">
+                <select id="f-service" name="service" class="w-full min-h-[44px] appearance-none bg-base border hairline rounded-xl px-4 pr-10 text-sm text-ink cursor-pointer">
+                  <option>Self-drive rental</option><option>Chauffeur service</option><option>Airport transfer</option><option>Photoshoot</option><option>Special event</option><option>Business travel</option>
+                </select>
+                <svg class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-muted" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+              </div>
+            </div>
+            <div>
+              <label for="f-dates" class="block text-[12px] label text-muted mb-1.5">Dates</label>
+              <input id="f-dates" name="dates" type="text" class="w-full min-h-[44px] bg-base border hairline rounded-xl px-4 text-sm text-ink placeholder:text-muted/60" placeholder="e.g. Jun 12 – 15" />
+            </div>
+          </div>
+          <div>
+            <label for="f-vehicle" class="block text-[12px] label text-muted mb-1.5">Vehicle of interest</label>
+            <input id="f-vehicle" name="vehicle" type="text" class="w-full min-h-[44px] bg-base border hairline rounded-xl px-4 text-sm text-ink placeholder:text-muted/60" placeholder="Vehicle name" />
+          </div>
+          <div>
+            <label for="f-msg" class="block text-[12px] label text-muted mb-1.5">Message</label>
+            <textarea id="f-msg" name="message" rows="3" class="w-full bg-base border hairline rounded-xl px-4 py-3 text-sm text-ink placeholder:text-muted/60 resize-none" placeholder="Tell us about the occasion…"></textarea>
+          </div>
+          <button type="submit" class="cta-lift w-full rounded-full bg-gold py-4 text-sm font-semibold text-base hover:bg-gold-bright cursor-pointer">Request a Quote</button>
+          <p class="text-[11px] text-muted text-center">We reply within 30 minutes during concierge hours. This is a prototype — the form does not submit.</p>
+        </form>
+
+        <div id="quoteSuccess" class="hidden px-6 py-14 text-center">
+          <div class="mx-auto h-16 w-16 grid place-items-center rounded-full bg-sage/15 text-sage mb-5">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+          </div>
+          <h3 class="font-display text-3xl">Request received</h3>
+          <p class="mt-2 text-muted max-w-sm mx-auto">Our concierge will be in touch shortly to confirm availability and delivery details.</p>
+          <button data-close class="mt-7 inline-flex rounded-full border hairline px-7 py-3 text-sm font-semibold hover:border-gold hover:text-gold cursor-pointer">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="fleet-data.js"></script>
+  <script src="city.js"></script>
+  <script src="ui.js"></script>
+  <script>
+    const params = new URLSearchParams(location.search);
+    const id = params.get('id');
+    const v = MERIDIAN_FLEET.find(x => x.id === id) || MERIDIAN_FLEET[0];
+
+    document.title = `${v.name} — MERIDIAN`;
+    document.getElementById('crumbName').textContent = v.name;
+    document.getElementById('vName').textContent = v.name;
+    document.getElementById('catTag').textContent = v.category;
+    document.getElementById('vPrice').textContent = '$' + v.price;
+    document.getElementById('mPrice').textContent = '$' + v.price;
+    document.getElementById('vDesc').textContent = v.desc;
+    document.getElementById('galAvail').classList.toggle('hidden', !v.available);
+
+    // Gallery + related re-render when the active city changes (photos are city-specific)
+    const mainImg = document.getElementById('mainImg');
+    const mainPhoto = document.getElementById('mainPhoto');
+    mainPhoto.setAttribute('data-name', v.name);
+    function setMain(src) { if (!mainImg) return; mainImg.src = src; mainImg.alt = v.name; mainImg.style.display = ''; }
+
+    function renderVehicleCity() {
+      const gallery = orderedGallery(v); // city-ordered (New York vs Miami hero)
+      setMain(gallery[0]);
+      const thumbsEl = document.getElementById('thumbs');
+      thumbsEl.innerHTML = gallery.map((g,i) => `
+        <button class="thumb photo relative aspect-[3/2] rounded-xl overflow-hidden border ${i===0?'border-gold':'hairline'} cursor-pointer" data-src="${g}" data-name="${v.name}" aria-label="View image ${i+1}">
+          <img src="${g}" alt="" loading="lazy" class="absolute inset-0 h-full w-full object-cover" onerror="this.remove()" />
+        </button>`).join('');
+      const thumbEls = [...thumbsEl.querySelectorAll('.thumb')];
+      thumbEls.forEach(t => t.addEventListener('click', () => {
+        setMain(t.dataset.src);
+        thumbEls.forEach(x => { x.classList.remove('border-gold'); x.classList.add('hairline'); });
+        t.classList.add('border-gold'); t.classList.remove('hairline');
+      }));
+
+      // Related — same group first, then fill
+      let related = MERIDIAN_FLEET.filter(x => x.id !== v.id && x.group === v.group);
+      related = related.concat(MERIDIAN_FLEET.filter(x => x.id !== v.id && x.group !== v.group));
+      const grid = document.getElementById('relatedGrid');
+      grid.innerHTML = related.slice(0,3).map(x => vehicleCard(x)).join('');
+      grid.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+    }
+    document.addEventListener('citychange', renderVehicleCity);
+
+    // Spec grid
+    const specs = [
+      { icon:'seat', label:'Seats', val:v.specs.seats },
+      { icon:'wheel', label:'Transmission', val:v.specs.transmission },
+      { icon:'bolt', label:'Power', val:v.specs.power },
+      { icon:'calendar', label:'Model year', val:v.specs.year },
+      { icon:'gauge', label:'Performance', val:v.specs.top },
+      { icon:'route', label:'Mileage', val:v.specs.mileage },
+    ];
+    document.getElementById('specGrid').innerHTML = specs.map(s => `
+      <div class="bg-surface p-4">
+        <div class="text-gold mb-2">${svg(s.icon,'!w-5 !h-5')}</div>
+        <p class="text-[11px] label text-muted">${s.label}</p>
+        <p class="text-[14px] text-ink mt-0.5 font-medium">${s.val}</p>
+      </div>`).join('');
+
+    // Booking CTAs
+    const primary = document.getElementById('primaryCta');
+    const ctaNote = document.getElementById('ctaNote');
+    if (v.selfDrive) {
+      primary.innerHTML = 'Book on Turo' + arrowSvg(17);
+      primary.href = '#';
+      primary.setAttribute('target','_self');
+      ctaNote.textContent = 'Self-drive rentals are booked through our verified Turo listing (opens externally).';
+    } else {
+      primary.textContent = 'Reserve with Concierge';
+      primary.setAttribute('data-quote','');
+      primary.removeAttribute('href');
+      primary.setAttribute('role','button');
+      primary.classList.add('cursor-pointer');
+      ctaNote.textContent = 'This vehicle is arranged directly through our concierge, chauffeur optional.';
+    }
+
+    /* ---------- Concierge modal ---------- */
+    const modal = document.getElementById('quoteModal');
+    const form = document.getElementById('quoteForm');
+    const success = document.getElementById('quoteSuccess');
+    const openQuote = () => {
+      document.getElementById('modalCar').textContent = 'Enquire · ' + v.name;
+      document.getElementById('f-vehicle').value = v.name;
+      form.classList.remove('hidden'); success.classList.add('hidden');
+      modal.classList.remove('hidden'); document.body.style.overflow = 'hidden';
+    };
+    const closeQuote = () => { modal.classList.add('hidden'); document.body.style.overflow = ''; };
+    document.querySelectorAll('[data-quote]').forEach(b => b.addEventListener('click', openQuote));
+    modal.querySelectorAll('[data-close]').forEach(b => b.addEventListener('click', closeQuote));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeQuote(); });
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      form.classList.add('hidden'); success.classList.remove('hidden');
+    });
+
+    initMeridianUI();
+    initMeridianCity(); // applies city → renderVehicleCity() via citychange
+  </script>
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Fleet — MERIDIAN | Luxury &amp; Exotic Car Rental</title>
+  <meta name="description" content="Browse the MERIDIAN fleet — exotic, luxury, SUV, convertible and everyday vehicles, delivered to your door in Miami." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: {
+        colors: { base:'#0A0A0B', surface:'#16161A', hair:'rgba(255,255,255,0.08)', ink:'#F5F3EF', muted:'#A1A1AA', gold:'#C6A56B', 'gold-bright':'#D8BC85', sage:'#6FA287' },
+        fontFamily: { display:['"Cormorant Garamond"','Georgia','serif'], sans:['Inter','system-ui','sans-serif'] },
+        maxWidth: { shell: '1440px' },
+      } },
+    };
+  </script>
+  <link rel="stylesheet" href="theme.css" />
+</head>
+
+<body class="bg-base text-ink font-sans antialiased">
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:bg-gold focus:text-base focus:px-4 focus:py-2 focus:rounded">Skip to content</a>
+
+  <!-- HEADER -->
+  <header id="siteHeader" class="fixed top-0 inset-x-0 z-50 condensed">
+    <div class="mx-auto max-w-shell px-5 sm:px-8 lg:px-12">
+      <div class="flex items-center justify-between h-[68px] lg:h-[76px]">
+        <a href="index.html" class="font-display text-2xl lg:text-[26px] font-semibold tracking-wide text-ink">MERIDIAN<span class="text-gold">.</span></a>
+        <nav aria-label="Primary" class="hidden lg:flex items-center gap-9">
+          <a href="fleet.html" class="text-[13px] label text-gold" aria-current="page">Fleet</a>
+          <a href="index.html#services" class="text-[13px] label text-ink/90 hover:text-gold transition-colors">Services</a>
+          <a href="index.html#story" class="text-[13px] label text-ink/90 hover:text-gold transition-colors">About</a>
+          <a href="index.html#contact" class="text-[13px] label text-ink/90 hover:text-gold transition-colors">Contact</a>
+        </nav>
+        <div class="flex items-center gap-3">
+          <div data-city-toggle class="hidden md:inline-flex"></div>
+          <a href="index.html#contact" class="hidden lg:inline-flex cta-lift items-center gap-2 rounded-full bg-gold px-6 py-2.5 text-[13px] font-semibold text-base hover:bg-gold-bright cursor-pointer">Reserve</a>
+          <button id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu" class="lg:hidden inline-grid place-items-center h-11 w-11 rounded-full border hairline text-ink hover:text-gold cursor-pointer">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <div id="mobileMenu" class="fixed inset-0 z-[60] hidden bg-base/98 backdrop-blur-xl">
+    <div class="flex items-center justify-between h-[68px] px-5">
+      <span class="font-display text-2xl font-semibold">MERIDIAN<span class="text-gold">.</span></span>
+      <button id="menuClose" aria-label="Close menu" class="inline-grid place-items-center h-11 w-11 rounded-full border hairline text-ink hover:text-gold cursor-pointer">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <div class="px-6 pt-6">
+      <p class="label text-[11px] text-muted mb-3">Your city</p>
+      <div data-city-toggle class="mb-2"></div>
+    </div>
+    <nav aria-label="Mobile" class="px-6 pt-4 flex flex-col gap-2">
+      <a href="fleet.html" class="font-display text-4xl py-3 border-b hairline text-gold">Fleet</a>
+      <a href="index.html#services" class="font-display text-4xl py-3 border-b hairline hover:text-gold">Services</a>
+      <a href="index.html#story" class="font-display text-4xl py-3 border-b hairline hover:text-gold">About</a>
+      <a href="index.html#contact" class="font-display text-4xl py-3 border-b hairline hover:text-gold">Contact</a>
+      <a href="index.html#contact" class="mt-6 text-center rounded-full bg-gold px-6 py-4 text-sm font-semibold text-base">Reserve / Get a Quote</a>
+    </nav>
+  </div>
+
+  <main id="main" class="above-map pt-[68px] lg:pt-[76px]">
+    <!-- PAGE HEAD -->
+    <section class="mx-auto max-w-shell px-5 sm:px-8 lg:px-12 pt-14 lg:pt-20 pb-8">
+      <p class="label text-[12px] text-gold mb-4">The Fleet · <span data-city-text="short">New York</span></p>
+      <h1 class="font-display text-5xl sm:text-6xl lg:text-7xl font-medium leading-[0.98] max-w-3xl">Choose your character.</h1>
+      <p class="mt-5 max-w-xl text-muted leading-relaxed">From naturally-aspirated exotics to executive everyday sedans — every car is delivered detailed, fuelled and ready across <span data-city-text="short">New York</span>. Prices are indicative daily rates.</p>
+    </section>
+
+    <!-- FILTER / SORT BAR (visual only) -->
+    <section class="sticky top-[68px] lg:top-[76px] z-40 bg-base/90 backdrop-blur-lg border-y hairline">
+      <div class="mx-auto max-w-shell px-5 sm:px-8 lg:px-12 py-3.5 flex items-center gap-4">
+        <div class="flex-1 min-w-0 flex items-center gap-2 overflow-x-auto no-scrollbar" id="chipRow" role="group" aria-label="Filter by category">
+          <!-- chips injected -->
+        </div>
+        <div class="hidden sm:flex items-center gap-2 shrink-0">
+          <label for="sortSel" class="label text-[11px] text-muted">Sort</label>
+          <div class="relative">
+            <select id="sortSel" class="appearance-none bg-surface border hairline rounded-full pl-4 pr-9 py-2 text-[13px] text-ink cursor-pointer hover:border-gold/50 transition-colors">
+              <option value="featured">Featured</option>
+              <option value="price-asc">Price · Low to High</option>
+              <option value="price-desc">Price · High to Low</option>
+              <option value="newest">Newest</option>
+            </select>
+            <svg class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-muted" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GRID -->
+    <section class="mx-auto max-w-shell px-5 sm:px-8 lg:px-12 py-10 lg:py-14">
+      <p class="text-[13px] text-muted mb-6"><span id="resultCount" class="text-ink">8</span> vehicles available</p>
+      <div id="fleetGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+      <div id="emptyState" class="hidden text-center py-20 text-muted">No vehicles match that filter yet.</div>
+    </section>
+
+    <!-- CTA STRIP -->
+    <section class="mx-auto max-w-shell px-5 sm:px-8 lg:px-12 pb-24">
+      <div class="rounded-3xl border hairline bg-surface px-6 sm:px-12 py-12 lg:py-16 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+        <div>
+          <h2 class="font-display text-3xl sm:text-4xl font-medium">Can't decide? Let the concierge help.</h2>
+          <p class="mt-2 text-muted">Tell us the occasion — we'll match the car and deliver it.</p>
+        </div>
+        <a href="index.html#contact" class="cta-lift shrink-0 inline-flex items-center justify-center gap-2 rounded-full bg-gold px-8 py-4 text-sm font-semibold text-base hover:bg-gold-bright cursor-pointer">Request a Quote</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="above-map border-t hairline bg-surface/40">
+    <div class="mx-auto max-w-shell px-5 sm:px-8 lg:px-12 py-16">
+      <div class="grid gap-12 lg:grid-cols-12">
+        <div class="lg:col-span-5">
+          <a href="index.html" class="font-display text-3xl font-semibold">MERIDIAN<span class="text-gold">.</span></a>
+          <p class="mt-4 max-w-sm text-muted leading-relaxed">The city, elevated. Premium and exotic car rental with concierge delivery across <span data-city-text="short">New York</span> and beyond.</p>
+        </div>
+        <nav aria-label="Footer" class="lg:col-span-3">
+          <p class="label text-[11px] text-muted mb-4">Explore</p>
+          <ul class="space-y-3 text-sm">
+            <li><a href="fleet.html" class="text-ink/80 hover:text-gold transition-colors">Fleet</a></li>
+            <li><a href="index.html#services" class="text-ink/80 hover:text-gold transition-colors">Services</a></li>
+            <li><a href="index.html#story" class="text-ink/80 hover:text-gold transition-colors">About</a></li>
+            <li><a href="index.html#contact" class="text-ink/80 hover:text-gold transition-colors">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="lg:col-span-4">
+          <p class="label text-[11px] text-muted mb-4">Concierge</p>
+          <ul class="space-y-3 text-sm">
+            <li><a href="tel:+12125550110" class="city-phone text-ink/80 hover:text-gold transition-colors">+1 (212) 555-0110</a></li>
+            <li><a href="mailto:concierge@meridian.example" class="text-ink/80 hover:text-gold transition-colors">concierge@meridian.example</a></li>
+            <li class="text-muted">Serving <span data-city-text="region">Greater New York · Manhattan to the Hamptons</span> · Delivery available</li>
+          </ul>
+          <div class="mt-6 flex flex-wrap gap-x-2 gap-y-1 text-[12px] text-muted">
+            <span>Fully insured</span><span class="text-gold">·</span><span>24/7 concierge</span><span class="text-gold">·</span><span>Delivery available</span>
+          </div>
+        </div>
+      </div>
+      <div class="mt-14 pt-6 border-t hairline flex flex-col sm:flex-row justify-between gap-3 text-[12px] text-muted">
+        <p>© 2026 MERIDIAN Motorcars. Concierge hours: 7am–11pm daily.</p>
+        <p>A visual prototype — no bookings are processed.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MOBILE STICKY CTA -->
+  <div class="lg:hidden fixed bottom-0 inset-x-0 z-40 border-t hairline bg-base/95 backdrop-blur-lg px-4 py-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] flex gap-3">
+    <button id="mSortBtn" class="flex-1 text-center rounded-full border hairline py-3 text-[13px] font-semibold text-ink cursor-pointer">Sort</button>
+    <a href="index.html#contact" class="flex-1 text-center rounded-full bg-gold py-3 text-[13px] font-semibold text-base cursor-pointer">Get a Quote</a>
+  </div>
+  <div class="lg:hidden h-20" aria-hidden="true"></div>
+
+  <style>.no-scrollbar::-webkit-scrollbar{display:none}.no-scrollbar{-ms-overflow-style:none;scrollbar-width:none}</style>
+
+  <script src="fleet-data.js"></script>
+  <script src="city.js"></script>
+  <script src="ui.js"></script>
+  <script>
+    const CATEGORIES = ['All','Exotic','Luxury','SUV','Convertible','Everyday'];
+    const grid = document.getElementById('fleetGrid');
+    const chipRow = document.getElementById('chipRow');
+    const sortSel = document.getElementById('sortSel');
+    const resultCount = document.getElementById('resultCount');
+    const emptyState = document.getElementById('emptyState');
+    let activeCat = 'All';
+
+    // Build chips
+    chipRow.innerHTML = CATEGORIES.map(c => `
+      <button class="chip shrink-0 rounded-full border hairline px-4 py-2 text-[13px] whitespace-nowrap text-ink/85 hover:border-gold/50 cursor-pointer" data-cat="${c}" aria-pressed="${c===activeCat}">${c}</button>
+    `).join('');
+
+    function matchCat(v, cat) {
+      if (cat === 'All') return true;
+      if (cat === 'Everyday') return v.group === 'Everyday';
+      return v.group === cat;
+    }
+
+    function sortList(list, mode) {
+      const num = v => parseFloat(v.price.replace(/,/g,''));
+      const arr = [...list];
+      if (mode === 'price-asc') arr.sort((a,b)=>num(a)-num(b));
+      else if (mode === 'price-desc') arr.sort((a,b)=>num(b)-num(a));
+      else if (mode === 'newest') arr.reverse();
+      else arr.sort((a,b)=> (b.featured?1:0)-(a.featured?1:0)); // featured first
+      return arr;
+    }
+
+    function render() {
+      let list = MERIDIAN_FLEET.filter(v => matchCat(v, activeCat));
+      list = sortList(list, sortSel.value);
+      resultCount.textContent = list.length;
+      grid.innerHTML = list.map(v => vehicleCard(v)).join('');
+      emptyState.classList.toggle('hidden', list.length > 0);
+      // reveal newly injected cards
+      grid.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+    }
+
+    chipRow.addEventListener('click', e => {
+      const btn = e.target.closest('.chip'); if (!btn) return;
+      activeCat = btn.dataset.cat;
+      chipRow.querySelectorAll('.chip').forEach(c => c.setAttribute('aria-pressed', c.dataset.cat === activeCat));
+      render();
+    });
+    sortSel.addEventListener('change', render);
+    document.getElementById('mSortBtn').addEventListener('click', () => {
+      const modes = ['featured','price-asc','price-desc','newest'];
+      sortSel.value = modes[(modes.indexOf(sortSel.value)+1)%modes.length];
+      render();
+    });
+
+    document.addEventListener('citychange', render); // re-render fleet photos for the active city
+
+    render();
+    initMeridianUI();
+    initMeridianCity();
+  </script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+/* MERIDIAN — shared theme (dark / gold, Cormorant Garamond + Inter) */
+:root { color-scheme: dark; }
+html, body { background: #0A0A0B; }
+::selection { background: #C6A56B; color: #0A0A0B; }
+
+.label { letter-spacing: 0.22em; text-transform: uppercase; }
+.hairline { border-color: rgba(255,255,255,0.08); }
+
+/* Focus visibility for keyboard nav */
+a:focus-visible, button:focus-visible, input:focus-visible,
+select:focus-visible, textarea:focus-visible {
+  outline: 2px solid #C6A56B;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Faint fallback wordmark shows through if a photo fails to load.
+   `isolation:isolate` keeps the image's z-index contained inside .photo so it
+   never paints over overlaid hero text in the section's stacking context. */
+.photo { background: linear-gradient(135deg,#1c1c22 0%,#0e0e10 100%); isolation: isolate; }
+.photo::after {
+  content: attr(data-name);
+  position: absolute; inset: 0; display: grid; place-items: center;
+  font-family: "Cormorant Garamond", serif; font-weight: 600;
+  font-size: clamp(1.25rem, 4vw, 2rem); color: rgba(245,243,239,0.06);
+  letter-spacing: 0.05em; text-align: center; padding: 1rem; z-index: 0;
+}
+.photo > img { position: relative; z-index: 1; }
+
+.card-zoom img { transition: transform .5s cubic-bezier(.2,.6,.2,1); }
+.group:hover .card-zoom img { transform: scale(1.06); }
+
+.cta-lift { transition: transform .25s ease, background-color .25s ease, box-shadow .25s ease; }
+.cta-lift:hover { transform: translateY(-2px); }
+
+/* Sticky header condense */
+#siteHeader { transition: background-color .3s ease, backdrop-filter .3s ease, border-color .3s ease; }
+#siteHeader.condensed {
+  background: rgba(10,10,11,0.82);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.in { opacity: 1; transform: none; }
+
+.scroll-cue span { animation: cue 2s ease-in-out infinite; }
+@keyframes cue { 0%,100%{transform:translateY(0);opacity:.4} 50%{transform:translateY(7px);opacity:1} }
+
+/* Filter chips */
+.chip { transition: background-color .2s ease, color .2s ease, border-color .2s ease; }
+.chip[aria-pressed="true"] { background: #C6A56B; color: #0A0A0B; border-color: #C6A56B; }
+
+/* City map-grid backdrop — sits behind all content, revealed through
+   transparent sections for a subtle sense of place. */
+#cityMap {
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  opacity: 0.06; transition: opacity .4s ease;
+}
+#cityMap svg { width: 100%; height: 100%; display: block; }
+/* Content layers ride above the backdrop */
+.above-map { position: relative; z-index: 10; }
+
+/* City toggle (segmented control) */
+[data-city-toggle] {
+  display: inline-flex; align-items: center; gap: 2px; padding: 3px;
+  border: 1px solid rgba(255,255,255,0.08); border-radius: 9999px;
+  background: rgba(255,255,255,0.02);
+}
+.city-btn {
+  border-radius: 9999px; padding: 0.38rem 0.72rem; font-size: 11px;
+  letter-spacing: 0.14em; text-transform: uppercase; color: #A1A1AA;
+  cursor: pointer; white-space: nowrap; transition: background-color .2s ease, color .2s ease;
+}
+.city-btn[aria-pressed="true"] { background: #C6A56B; color: #0A0A0B; font-weight: 600; }
+.city-btn:hover:not([aria-pressed="true"]) { color: #F5F3EF; }
+
+@media (prefers-reduced-motion: reduce) { #cityMap { transition: none; } }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .reveal { opacity: 1 !important; transform: none !important; }
+  .group:hover .card-zoom img { transform: none; }
+}
