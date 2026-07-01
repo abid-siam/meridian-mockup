@@ -13,8 +13,8 @@ window.MERIDIAN_CITIES = {
     airportCopy: 'Met at JFK, LaGuardia or Newark — curbside to the driver’s seat in minutes, not queues.',
     phone: '+1 (212) 555-0110',
     phoneHref: '+12125550110',
-    heroImg: 'https://images.unsplash.com/photo-1716231888723-35edaa8c7714?auto=format&fit=crop&w=2000&q=80',
-    heroAlt: 'A black Bentley on a New York City street lined with storefronts',
+    heroImg: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=2000&q=80',
+    heroAlt: 'A luxury sports car in a dark, cinematic setting',
   },
   miami: {
     id: 'miami',
