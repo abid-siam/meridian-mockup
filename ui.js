@@ -83,18 +83,31 @@ function initMenu() {
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && !menu.classList.contains('hidden')) shut(); });
 }
 
-/* ---------- Scroll reveal ---------- */
-function initReveal() {
+/* ---------- Scroll reveal (works for dynamically-injected content) ---------- */
+let _revealIO = null;
+function _getRevealIO() {
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const els = document.querySelectorAll('.reveal');
-  if (reduce || !('IntersectionObserver' in window)) {
-    els.forEach(el => el.classList.add('in'));
-    return;
+  if (reduce || !('IntersectionObserver' in window)) return null;
+  if (!_revealIO) {
+    _revealIO = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); _revealIO.unobserve(e.target); } });
+    }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
   }
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-  }, { threshold: 0.12 });
+  return _revealIO;
+}
+// Observe any not-yet-revealed elements under `root`. Call again after
+// injecting cards so freshly-rendered content animates in on scroll.
+function observeReveals(root) {
+  root = root || document;
+  const io = _getRevealIO();
+  const els = root.querySelectorAll('.reveal:not(.in)');
+  if (!io) { els.forEach(el => el.classList.add('in')); return; }
   els.forEach(el => io.observe(el));
 }
+// Apply a staggered transition-delay to a set of elements for a cascading reveal.
+function staggerReveals(els, step) {
+  step = step || 70;
+  [...els].forEach((el, i) => { el.style.transitionDelay = (i * step) + 'ms'; });
+}
 
-function initMeridianUI() { initHeader(); initMenu(); initReveal(); }
+function initMeridianUI() { initHeader(); initMenu(); observeReveals(document); }

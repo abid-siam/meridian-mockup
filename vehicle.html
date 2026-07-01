@@ -305,7 +305,8 @@
       related = related.concat(MERIDIAN_FLEET.filter(x => x.id !== v.id && x.group !== v.group));
       const grid = document.getElementById('relatedGrid');
       grid.innerHTML = related.slice(0,3).map(x => vehicleCard(x)).join('');
-      grid.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+      staggerReveals(grid.querySelectorAll('.reveal'), 80);
+      observeReveals(grid);
     }
     document.addEventListener('citychange', renderVehicleCity);
 

@@ -201,8 +201,9 @@
       resultCount.textContent = list.length;
       grid.innerHTML = list.map(v => vehicleCard(v)).join('');
       emptyState.classList.toggle('hidden', list.length > 0);
-      // reveal newly injected cards
-      grid.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+      // stagger + observe so cards cascade in on scroll / filter change
+      staggerReveals(grid.querySelectorAll('.reveal'), 55);
+      observeReveals(grid);
     }
 
     chipRow.addEventListener('click', e => {
